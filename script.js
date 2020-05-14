@@ -5,30 +5,30 @@ const { writeFile, appendFile } = require('fs')
 const { promisify } = require('util')
 const writeFileSync = promisify(writeFile)
 
-prompt([
-  {
-    type: 'input',
-    name: 'username',
-    message: 'What is your GitHub username?'
-  }
-])
-  .then(username => {
-    console.log(username)
-    for (const name in username)
-    console.log(username[name])
-    axios.get(`https://api.github.com/users/${username[name]}`)
-      .then(({ data }) => {
-        console.log(data.avatar_url)
-        console.log(data.email)
-  })
-  .catch(err =>
-    console.log(err)
-  )
+// prompt([
+//   {
+//     type: 'input',
+//     name: 'username',
+//     message: 'What is your GitHub username?'
+//   }
+// ])
+//   .then(username => {
+//     console.log(username)
+//     for (const name in username)
+//     console.log(username[name])
+//     axios.get(`https://api.github.com/users/${username[name]}`)
+//       .then(({ data }) => {
+//         console.log(data.avatar_url)
+//         console.log(data.email)
+//   })
+//   .catch(err =>
+//     console.log(err)
+//   )
 
-  })
-  .catch(err => (
-    console.log(err)
-  ))
+//   })
+//   .catch(err => (
+//     console.log(err)
+//   ))
 
 const questions = [
   {
@@ -90,6 +90,19 @@ const api = {
   }
 }
 
+
+function init() {
+  prompt(questions).then((inquirerResponses) => {
+    console.log("Searching...")
+    api
+    .getUser(inquirerResponses.github)
+    .then(({ data }) => {
+      writeFile("README.md", generateMarkdown({ ...inquirerResponses, ...data }))
+    })
+  })
+}
+init()
+
 function generateMarkdown({ data }) {
   return `
 
@@ -118,15 +131,3 @@ function generateMarkdown({ data }) {
 # ${user.email}
   `
 }
-
-function init() {
-  prompt(questions).then((inquirerResponses) => {
-    console.log("Searching...")
-    api
-      .getUser(inquirerResponses.github)
-      .then(({ data }) => {
-        writeFile("README.md", generateMarkdown({ ...inquirerResponses, ...data }))
-      })
-  })
-}
-init()
