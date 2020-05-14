@@ -76,12 +76,15 @@ prompt([
 
 function generateMarkdown({ data }) {
   return `
+
+  [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+  ----------------------------------------------------------------------------------
 # ${ data.title}
-============================
+=================================================
 ###  ${ data.description}
-----------------------------------
+----------------------------------------------------------------------------------
 ## ${ data.tableOfContents}
-=============================
+=================================================
 #${ data.installation}
 
 # ${ data.usage}
@@ -93,7 +96,7 @@ function generateMarkdown({ data }) {
 # ${ data.tests}
 
 # ${ data.questions}
-----------------------------------
+
 <img src ="${user.avatar_url}" alt ="$(user.username)">
 
 # ${user.email}
