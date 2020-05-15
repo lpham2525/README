@@ -2,23 +2,27 @@
 
   [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
   ----------------------------------------------------------------------------------
-# readme
-=================================================
-###  readme generator
+# Title: README
 ----------------------------------------------------------------
-#npm i
+###  Description: Generates READMEs for your project.
+----------------------------------------------------------------
+##Table of Contents
 
-# generates readmes
+ *Installation: npm i
 
-#None
+ *Usage:Generates a short README with basic information, a profile picture, and an email.
 
-# commit often
+ *License: None
 
-# npm test
+ *Contributing: Contributions welcome.
 
-# undefined
+ *Test: npm test
 
-[![Profile-picture](https://avatars2.githubusercontent.com/u/60991372?v=4)]]
+###Questions? Contact below: 
 
-# null
+*[![Profile-picture](https://avatars2.githubusercontent.com/u/60991372?v=4)]]
+
+###Email: null
+
+###Made by LanChi Pham, &copy;Copyright 2020
   

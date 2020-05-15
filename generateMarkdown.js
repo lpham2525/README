@@ -3,25 +3,31 @@ function generateMarkdown(inquirerResponses, data) {
 
   [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
   ----------------------------------------------------------------------------------
-# ${ inquirerResponses.title}
-=================================================
-###  ${ inquirerResponses.description}
+# Title: ${ inquirerResponses.title}
 ----------------------------------------------------------------
-#${ inquirerResponses.installation}
+###  Description: ${ inquirerResponses.description}
+----------------------------------------------------------------
+##Demo: [![readme-gif]./README.gif]]
 
-# ${ inquirerResponses.usage}
+##Table of Contents
 
-#${ inquirerResponses.license}
+ *Installation: ${ inquirerResponses.installation}
 
-# ${ inquirerResponses.contributing}
+ *Usage:${ inquirerResponses.usage}
 
-# ${ inquirerResponses.test}
+ *License: ${ inquirerResponses.license}
 
-# ${ inquirerResponses.questions}
+ *Contributing: ${ inquirerResponses.contributing}
 
-[![Profile-picture](${data.avatar_url})]]
+ *Test: ${ inquirerResponses.test}
 
-# ${data.email}
+###Questions? Contact below: 
+
+*[![Profile-picture](${data.avatar_url})]]
+
+###Email: ${data.email}
+
+###Made by LanChi Pham, &copy;Copyright 2020
   `
 }
 

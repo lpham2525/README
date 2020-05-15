@@ -1,96 +1,96 @@
 const axios = require('axios')
 const { prompt } = require('inquirer')
-const name = ''
-const { writeFile, appendFile } = require('fs')
+const { writeFile } = require('fs')
 const { promisify } = require('util')
 const writeFileSync = promisify(writeFile)
-let inquirerResponses =''
-const api = require ('./api')
-const generateMarkdown = require('./generateMarkdown')
+const username = ''
+const name = ''
+const questions = ["What is the title of your project?", "What is the description of your project?", "What is the table of contents for your project?", "How was your project installed?", "How is your project used?", "What is your project licensed under?", "How is your project contributing to the world of web development?", "What kind of testing has your project been through?"]
 
-// prompt([
-//   {
-//     type: 'input',
-//     name: 'username',
-//     message: 'What is your GitHub username?'
-//   }
-// ])
-//   .then(username => {
-//     console.log(username)
-//     for (const name in username)
-//     console.log(username[name])
-//     axios.get(`https://api.github.com/users/${username[name]}`)
-//       .then(({ data }) => {
-//         console.log(data.avatar_url)
-//         console.log(data.email)
-//   })
-//   .catch(err =>
-//     console.log(err)
-//   )
-
-//   })
-//   .catch(err => (
-//     console.log(err)
-//   ))
-
-const questions = [
+prompt([
   {
-    type: "input",
-    name: "github",
-    message: "What is your GitHub username?"
-  },
-  {
-    type: "input",
-    name: "title",
-    message: "What is your project's name?"
-  },
-  {
-    type: "input",
-    name: "description",
-    message: "Please write a short description of your project"
-  },
-  {
-    type: "list",
-    name: "license",
-    message: "What kind of license should your project have?",
-    choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"]
-  },
-  {
-    type: "input",
-    name: "installation",
-    message: "What command should be run to install dependencies?",
-    default: "npm i"
-  },
-  {
-    type: "input",
-    name: "test",
-    message: "What command should be run to run tests?",
-    default: "npm test"
-  },
-  {
-    type: "input",
-    name: "usage",
-    message: "What does the user need to know about using the repo?",
-  },
-  {
-    type: "input",
-    name: "contributing",
-    message: "What does the user need to know about contributing to the repo?",
+    type: 'input',
+    name: 'username',
+    message: 'What is your GitHub username?'
   }
-]
+])
+  .then(username => {
+    console.log(username)
+    for (const name in username)
+      console.log(username[name])
+    axios.get(`https://api.github.com/users/${username[name]}`)
+      .then(({ data }) => {
+        console.log(data.avatar_url)
+        console.log(data.email)
+      })
+      .catch(err =>
+        console.log(err))
+  }
+  )
+  .catch(err =>
+    console.log(err))
+
+
+prompt([
+  {
+    type: 'input',
+    name: 'username',
+    message: 'What is your GitHub username?'
+  }
+  {
+    type: 'input',
+    name: 'title',
+    message: "What is the title of your project?"
+  },
+  {
+    type: 'input',
+    name: 'description',
+    message: "What is the description of your project?"
+  },
+  {
+    type: 'input',
+    name: 'tableofContents',
+    message: "What is the table of contents for your project?"
+  },
+  {
+    type: 'input',
+    name: 'installation',
+    message: "What command is needed to install your project?"
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: "What do users need to know to use your project?"
+  },
+  {
+    type: 'input',
+    name: 'license',
+    message: "What is your project licensed under?"
+  },
+  {
+    type: 'input',
+    name: 'contributing',
+    message: "How could users contribute to your project?"
+  },
+  {
+    type: 'input',
+    name: 'tests',
+    message: "What command is used to run tests on your project?"
+  },
+])
 
 function init() {
-  prompt(questions).then((inquirerResponses) => {
-    console.log(inquirerResponses)
-    api
-    .getUser(inquirerResponses.github)
-    .then(({ data }) => {
-      writeFileSync("README.md", generateMarkdown(inquirerResponses, data))
-      .then(( ) => {
-        
-      })
-      .catch (err => console.log(err))
-    })
-  })
+  inquirer.prompt(questions)
+    .then((inquirerResponses) => {
+      console.log("Searching...")
+      api
+        .getUser(inquirerResponses.github)
+        .then(({ data }) => {
+          function writeToFile(fileName, data) {
+            writeToFile("README.md", generateMarkdown({ ...inquirerResponses, ...data }))
+          }
+        })
+    }
+    )
 }
 init()
