@@ -10,21 +10,23 @@ function generateMarkdown(inquirerResponses, data) {
 ##Demo: [![readme-gif]./README.gif]]
 
 ##Table of Contents
+----------------------------------------------------------------
 
  *Installation: ${ inquirerResponses.installation}
+ ----------------------------------------------------------
 
  *Usage:${ inquirerResponses.usage}
-
+-----------------------------------------------------------
  *License: ${ inquirerResponses.license}
-
+------------------------------------------------------------
  *Contributing: ${ inquirerResponses.contributing}
-
+------------------------------------------------------------
  *Test: ${ inquirerResponses.test}
-
-###Questions? Contact below: 
-
+--------------------------------------------------------
+###Questions? 
+-------------------------------------------------
 *[![Profile-picture](${data.avatar_url})]]
-
+----------------------------------------------------
 ###Email: ${data.email}
 
 ###Made by LanChi Pham, &copy;Copyright 2020

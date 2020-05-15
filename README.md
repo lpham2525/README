@@ -4,24 +4,28 @@
   ----------------------------------------------------------------------------------
 # Title: README
 ----------------------------------------------------------------
-###  Description: Generates READMEs for your project.
+###  Description: Generates READMEs with basic info about a project.
 ----------------------------------------------------------------
+##Demo: [![readme-gif]./README.gif]]
+
 ##Table of Contents
+----------------------------------------------------------------
 
  *Installation: npm i
+ ----------------------------------------------------------
 
- *Usage:Generates a short README with basic information, a profile picture, and an email.
-
+ *Usage:The generated README will have the user's profile picture and email on it.
+-----------------------------------------------------------
  *License: None
-
+------------------------------------------------------------
  *Contributing: Contributions welcome.
-
+------------------------------------------------------------
  *Test: npm test
-
-###Questions? Contact below: 
-
+--------------------------------------------------------
+###Questions? 
+-------------------------------------------------
 *[![Profile-picture](https://avatars2.githubusercontent.com/u/60991372?v=4)]]
-
+----------------------------------------------------
 ###Email: null
 
 ###Made by LanChi Pham, &copy;Copyright 2020
