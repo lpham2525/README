@@ -2,9 +2,9 @@
 
   [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
   --------------------------------------------------------------
-# Title: README
+# Title: README generator
 ----------------------------------------------------------------
-###  Description: Generates READMEs with basic information about a project.
+###  Description: Generates concise READMEs with basic information about a project.
 ----------------------------------------------------------------
 #Demo: ![readme-gif](README.gif)
 -------------------------------------------------------------
@@ -13,7 +13,7 @@
 
  *Installation: npm i
 
- *Usage:The generated README will have the user's profile picture and email on it.
+ *Usage:Answer a series of prompts about your project and the README generator will create a clean, concise README with your responses.
 
  *License: None
 
@@ -22,10 +22,11 @@
  *Test: npm test
 
 #Questions? 
-
+--------------------------------------------------
 * ![Profile-picture](https://avatars2.githubusercontent.com/u/60991372?v=4)
 
 #Email: null
-
+---------------------------------------------------------
 #Made by LanChi Pham, &copy;Copyright 2020
+----------------------------------------------------------
   

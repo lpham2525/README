@@ -23,12 +23,13 @@ function generateMarkdown(inquirerResponses, data) {
  *Test: ${ inquirerResponses.test}
 
 #Questions? 
-
+--------------------------------------------------
 * ![Profile-picture](${data.avatar_url})
 
 #Email: ${data.email}
-
+---------------------------------------------------------
 #Made by LanChi Pham, &copy;Copyright 2020
+----------------------------------------------------------
   `
 }
 
