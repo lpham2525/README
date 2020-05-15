@@ -1,10 +1,24 @@
 
+
+  [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+  ----------------------------------------------------------------------------------
 # readme
-#  readme generator
-# undefined
+=================================================
+###  readme generator
+----------------------------------------------------------------
 #npm i
-# be careful
-#MIT
-# read before committing
+
+# generates readmes
+
+#None
+
+# commit often
+
+# npm test
+
 # undefined
-# undefined
+
+[![Profile-picture](https://avatars2.githubusercontent.com/u/60991372?v=4)]]
+
+# null
+  

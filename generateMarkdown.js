@@ -1,17 +1,28 @@
-function generateMarkdown(data) {
+function generateMarkdown(inquirerResponses, data) {
   return `
-# ${data.title}
-#  ${data.description}
-# ${data.tableOfContents}
-#${data.installation}
-# ${data.usage}
-#${data.license}
-# ${data.contributing}
-# ${data.tests}
-# ${data.questions}
-# ${user.avatar_url}
-# ${user.email}
-`
+
+  [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+  ----------------------------------------------------------------------------------
+# ${ inquirerResponses.title}
+=================================================
+###  ${ inquirerResponses.description}
+----------------------------------------------------------------
+#${ inquirerResponses.installation}
+
+# ${ inquirerResponses.usage}
+
+#${ inquirerResponses.license}
+
+# ${ inquirerResponses.contributing}
+
+# ${ inquirerResponses.test}
+
+# ${ inquirerResponses.questions}
+
+[![Profile-picture](${data.avatar_url})]]
+
+# ${data.email}
+  `
 }
 
 module.exports = generateMarkdown

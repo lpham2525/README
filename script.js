@@ -4,6 +4,9 @@ const name = ''
 const { writeFile, appendFile } = require('fs')
 const { promisify } = require('util')
 const writeFileSync = promisify(writeFile)
+let inquirerResponses =''
+const api = require ('./api')
+const generateMarkdown = require('./generateMarkdown')
 
 // prompt([
 //   {
@@ -75,59 +78,19 @@ const questions = [
     message: "What does the user need to know about contributing to the repo?",
   }
 ]
-const api = {
-  getUser(username) {
-    return axios
-      .get(
-        `https://api.github.com/users/${username}?client_id=${
-        process.env.CLIENT_ID
-        }&client_secret=${process.env.CLIENT_SECRET}`
-      )
-      .catch(err => {
-        console.log(`User not found`)
-        process.exit(1)
-      })
-  }
-}
-
 
 function init() {
   prompt(questions).then((inquirerResponses) => {
-    console.log("Searching...")
+    console.log(inquirerResponses)
     api
     .getUser(inquirerResponses.github)
     .then(({ data }) => {
-      writeFile("README.md", generateMarkdown({ ...inquirerResponses, ...data }))
+      writeFileSync("README.md", generateMarkdown(inquirerResponses, data))
+      .then(( ) => {
+        
+      })
+      .catch (err => console.log(err))
     })
   })
 }
 init()
-
-function generateMarkdown({ data }) {
-  return `
-
-  [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
-  ----------------------------------------------------------------------------------
-# ${ data.title}
-=================================================
-###  ${ data.description}
-----------------------------------------------------------------------------------
-## ${ data.tableOfContents}
-=================================================
-#${ data.installation}
-
-# ${ data.usage}
-
-#${ data.license}
-
-# ${ data.contributing}
-
-# ${ data.tests}
-
-# ${ data.questions}
-
-<img src ="${user.avatar_url}" alt ="$(user.username)">
-
-# ${user.email}
-  `
-}
