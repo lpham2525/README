@@ -9,7 +9,7 @@ function generateMarkdown(inquirerResponses, data) {
 ----------------------------------------------------------------
 #Demo: ![readme-gif](README.gif)
 -------------------------------------------------------------
-#Table of Contents
+Table of Contents
 ----------------------------------------------------------------
 
  *Installation: ${ inquirerResponses.installation}
@@ -22,13 +22,13 @@ function generateMarkdown(inquirerResponses, data) {
 
  *Test: ${ inquirerResponses.test}
 
-#Questions? 
+Questions? 
 --------------------------------------------------
 * ![Profile-picture](${data.avatar_url})
 
-#Email: ${data.email}
+Email: ${data.email}
 ---------------------------------------------------------
-#Made by LanChi Pham, &copy;Copyright 2020
+Made by LanChi Pham, &copy;Copyright 2020
 ----------------------------------------------------------
   `
 }
